@@ -14,7 +14,7 @@
     "docs": "typedoc --out documentation/ src/ --theme minimal",
     "test": "jest",
     "test-watch": "jest --watch",
-    "postinstall": "npm run copy && npm run build"
+    "build:release": "npm run copy && npm run build"
   },
   "jest": {
     "transform": {
