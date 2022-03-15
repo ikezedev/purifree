@@ -1,8 +1,7 @@
 node_modules
-lib
+src
 yarn-error.log
 documentation
 coverage
-**/*.d.ts
 .cache
 dist

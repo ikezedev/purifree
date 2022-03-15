@@ -1,0 +1,5 @@
+import { ApKind, ofAp } from './ap';
+import { IsUnion } from './do';
+import { ReplaceFirst, Type } from './hkt';
+export declare const sequenceS: <Of extends ofAp<any>>(of: Of) => <Ap extends ApKind<any, any> = ReturnType<Of>, NER extends Record<string, Ap> = any, A extends any[] = (NER extends Record<string, infer A_1> ? A_1 : never)["_A"], Rest = A extends [infer _A, ...infer Rest_1] ? Rest_1 : never>(r: IsUnion<Rest> extends true ? ["ERROR: All secondary generics must be of the same type. Different generics found: ", Rest] : NER) => IsUnion<Rest> extends true ? ["ERROR: All secondary generics must be of the same type. Different generics found: ", Rest] : Type<Ap["_URI"], ReplaceFirst<A, { [K in keyof NER]: NER[K] extends ApKind<any, infer A_2> ? A_2[0] : never; }>>;
+export declare const sequenceSFlex: <Of extends ofAp<any>>(of: Of) => <Ap extends ApKind<any, any> = ReturnType<Of>, NER extends Record<string, Ap> = any, A extends any[] = (NER extends Record<string, infer A_1> ? A_1 : never)["_A"]>(r: NER) => Type<Ap["_URI"], ReplaceFirst<A, { [K in keyof NER]: NER[K] extends ApKind<any, infer A_2> ? A_2[0] : never; }>>;
